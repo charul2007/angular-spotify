@@ -8,6 +8,7 @@ export const ActionTypes = {
   LOAD_MUSIC: type('[Home] Load Music'),
   LOAD_MUSIC_COMPLETE: type('[Home] Load Music Complete'),
   LOAD_MUSIC_ERROR: type('[Home] Load Music Error'),
+  CLEAR_LOAD_MUSIC: type('[Home] Clear Load Music')
 
 };
 
@@ -26,3 +27,11 @@ export class LoadMusicError implements Action {
 
   constructor(public payload: { message: string }) { }
 }
+
+export class ClearLoadMusic implements Action {
+  type = ActionTypes.CLEAR_LOAD_MUSIC;
+
+  constructor() { }
+}
+
+

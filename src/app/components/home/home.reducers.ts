@@ -21,6 +21,12 @@ export function reducer(
       });
     }
 
+    case homeActions.ActionTypes.CLEAR_LOAD_MUSIC: {
+      return Object.assign({}, state, {
+        music: []
+      });
+    }
+
     default: {
       return state;
     }

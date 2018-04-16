@@ -28,17 +28,13 @@ import { SpotifyService } from '../../services/spotify.services';
 	<loading-indicator [show]="loading" [size]="3" [spikes]="12"></loading-indicator>
 	<div *ngIf="music" class="row">
     <div *ngFor="let res of music?.artists?.items" class="col-md-6">
-      <div >
-        <div >
-          <div class="search-res well">
-            <h4><a routerLink="/artist/{{res.id}}">{{res.name}}</a></h4> 
-            <div>
-              <strong>Genres: </strong>
-              <span *ngFor="let genre of res.genres">{{genre}}</span>    
-            </div>   
-          </div>    
-        </div>    
-      </div>
+      <div class="search-res well">
+        <h4><a routerLink="/artist/{{res.id}}">{{res.name}}</a></h4> 
+        <div>
+          <strong>Genres: </strong>
+          <span *ngFor="let genre of res.genres">{{genre}}</span>
+        </div>   
+      </div>    
     </div>
 	</div>
   `,
@@ -72,7 +68,7 @@ export class HomeComponent implements OnInit {
   searchMusic(event) {
 
     let searchTerm = event.target.value.trim();
-    if (searchTerm) {
+    if (searchTerm.length > 2) {
       this.store.dispatch(new homeActions.LoadMusic({
       	search: searchTerm, 
       	offset: 0,
@@ -80,6 +76,9 @@ export class HomeComponent implements OnInit {
       	type: 'artist',
       	market: 'us'
       }));
+    }
+    else {
+    	this.store.dispatch(new homeActions.ClearLoadMusic());
     }
   }
 

@@ -22,6 +22,7 @@ export class HomeEffects {
   @Effect()
   create$ = this.actions$
   .ofType(homeActions.ActionTypes.LOAD_MUSIC)
+  .debounceTime(300)
   .map((action: any) => action.payload)
   .switchMap(payload => {
     return this.spotifyService.searchMusic(payload)
