@@ -1,9 +1,10 @@
 # AngularSpotify
 
-##Overview 
+## Overview
+
 This project uses technologies as Angular 5, SASS, ngrx, rxjs, Typescript.
 
-##Installing the Application
+## Installing the Application
 
 Go to the root of the project and run:
 `npm install`
