@@ -1,0 +1,12 @@
+@import '../../../variables';
+
+.album {
+  text-align: center;
+  background: $primary-color;
+  padding: 10px $twenty-px;
+  border: #666 1px solid;
+}
+
+.album-thumb {
+  width: 100%;
+}
